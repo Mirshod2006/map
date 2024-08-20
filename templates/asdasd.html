@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" integrity="sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/3.0.9/leaflet-search.min.css" integrity="sha512-1TnOnmQ91QV8X1/dj6UMPhRM35nAnBanyvXPFU7uqV3xg+++cGxIBR6Bh5D7F8wVrwNm8eAfBWNYX/4yce4CiQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/3.0.9/leaflet-search.mobile.min.css" integrity="sha512-NMc+FJJzKqhdJINmeJIyPG6dKbGdBN0HLv3jS040fNrhV7KUPq6t1JHQYqR6pxMXM+jJKZganGrfnCJQaPhPNw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/3.0.9/leaflet-search.mobile.src.css" integrity="sha512-l1sEsCF+WEgij13uZik8//zb7qTeDW/6rpIcxAEx97kXlKzLIj6GqqBaiWfyq3bojiZyui1MY3JnB3nAwlCUmw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/3.0.9/leaflet-search.mobile.src.min.css" integrity="sha512-SfeL82/EmgRmByeU2zSj7NYmicyT/Wqx3s/lMDR21P60lSRD0UlofnOjQoymv2fX0an6ynMyKC+Wc51eLDFOTQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/3.0.9/leaflet-search.src.css" integrity="sha512-D90lDHqyKJ8eBwGGmRDCeYFCco0DA/0e3EKdEweJolJLq0o7bK1skVZw28EXJmA/CtBq8F9wUOSm1/N5yNKfQw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/3.0.9/leaflet-search.src.min.css" integrity="sha512-9eyGJRX2iwqhgtO4r4779lnhgQL9PygSF6k5KCwsinBQQ9uM+fDxsd2IEx3DJfwgd/+IPeMgUxwwIA/YTBRgKA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css" integrity="sha512-6ZCLMiYwTeli2rVh3XAPxy3YoR5fVxGdH/pz+KMCzRY2M65Emgkw00Yqmhh8qLGeYQ3LbVZGdmOX9KUjSKr0TA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.min.css" integrity="sha512-fYyZwU1wU0QWB4Yutd/Pvhy5J1oWAwFXun1pt+Bps04WSe4Aq6tyHlT4+MHSJhD8JlLfgLuC4CbCnX5KHSjyCg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css" integrity="sha512-mQ77VzAakzdpWdgfL/lM1ksNy89uFgibRQANsNneSTMD/bj0Y/8+94XMwYhnbzx8eki2hrbPpDm0vD0CiT2lcg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css" integrity="sha512-ENrTWqddXrLJsQS2A86QmvA17PkJ0GVm1bqj5aTgpeMAfDKN2+SIOLpKG8R/6KkimnhTb+VW5qqUHB/r1zaRgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.min.css" integrity="sha512-EAgFb1TGFSRh1CCsDotrqJMqB2D+FLCOXAJTE16Ajphi73gQmfJS/LNl6AsjDqDht6Ls7Qr1KWsrJxyttEkxIA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.rtl.min.css" integrity="sha512-3oruZFd8e/wrfr2pTP6LpO4lR0exB870UcnrVa0u3TTqbQ5ULfSsv25uG4NdN5mOgES3zvEzuLQq4EqaX8yVqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-reboot.min.css" integrity="sha512-allly0sW31f5fb2FdiSuezu/pLSoV8hN0liPTS5PAeB39hxh5S6yDf6ak7ge77JkfnOkiFNfjdXDyx6sEzz08A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-reboot.rtl.min.css" integrity="sha512-oOQddPMv4zGW7uB4CCwYq6inlgc5ur0QpM63U80cqrYMJXRWdVe4+vikoUqJQ9csSguOSUd2SUvXxJ6KIzhnjQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-utilities.min.css" integrity="sha512-K4XWKeYNHW67orY92NwVkgHAShgq/TowE5Sx9O4imSO1YM3ll+6pLLwcSJvr3IwDIWCnSDhkuxxqJEbY8+iGzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-utilities.rtl.min.css" integrity="sha512-Jx83h6vz654R02peFNTa/9Xeqy//qpF6meM5bnhXD9uD9aMIV8JqYBumRIeAUnx5gQSojnN+FrvZoyvfEmu8OA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css" integrity="sha512-ltIFivbYEeV9dNzcYLxBKC2hPQ0l9K2/Ws8R5GsMkxANKtMigmsjzTUUej7iH5NwGNnD070lrycDq5OJlDyb1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet-src.js" integrity="sha512-x4B5AXtD8SqDqEpzOFXxCE0OOUhQ0Fep3Qka6WtUa3tw7z4fC7eOI4Vjm191HB63//4Y554Zxydbt2Hi8b+bVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet-src.min.js" integrity="sha512-3/WyQrhTdqSVmSifQS62akgtNBhZha2lS44TnoN9Jk3J01FvsKK4suVmz6t5FtccGb5iJw58GoFhBjPE5EPc8Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/3.0.9/leaflet-search.src.js" integrity="sha512-tvjsIqyBgW8q4ttuNeaxQ5pluLv4jNC+cl0jD5DBXX4lrNkjavz9TE2EEoxgS/1jqMu1eSCybA++ZsBcIM7i7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/3.0.9/leaflet-search.min.js" integrity="sha512-erNK0f3PSiL/SdS247MoOAK95iJCmfueXT4WG5eyRBR1eOgcE0bI5y2fSEVTQfAS53pTqL/VIQpJXnG99U1n+A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/3.0.9/leaflet-search.src.min.js" integrity="sha512-aufZTRzO0kKiu1PYdUprobajMgrzHcHDuNxxQJqrF1TYfBsdyNG+Q/luVAwZERsttJQDm7VJY5aXl9MdM3Y7zQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js" integrity="sha512-OFs3W4DIZ5ZkrDhBFtsCP6JXtMEDGmhl0QPlmWYBJay40TT1n3gt2Xuw8Pf/iezgW9CdabjkNChRqozl/YADmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster-src.js" integrity="sha512-+v1wwh3/ssdlBHT9KaotlPNisom2W6Ryj4g2/HfkKu6OLp62Lbf6VgRdEm2+OYOQVnR0WoxVgWZq5JmPBAj+HQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster-src.min.js" integrity="sha512-tWZsle/wNvFCP/7BHWNf3yG/6Ic1YVPT+1Soyag9zzZcga1St3oAa+IgvrT3ZxBLY/njmSEr0EcQoPUrH+UfNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js" integrity="sha512-TiMWaqipFi2Vqt4ugRzsF8oRoGFlFFuqIi30FFxEPNw58Ov9mOy6LgC05ysfkxwLE0xVeZtmr92wVg9siAFRWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-realtime/2.2.0/leaflet-realtime.min.js" integrity="sha512-lLUl/IVVjrkzQWAtFwvpmy5OJcWxwX9PyDslgi7RO6Uz6a/nrz+C6bxKkR34DT/7yeUr0JC8JyrFEjBGAgo+bA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-realtime/2.2.0/leaflet-realtime.js" integrity="sha512-d+bDaqZOWIHR59M1KuwEFPnzRNevd3R7ic0ayV7s2M8B6OZCRe+XRwEs0WtZSIcnh/zoPRbiGSRPuiKOk7ENqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js" integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha512-VK2zcvntEufaimc+efOYi622VN5ZacdnufnmX7zIhCPmjhKnOi9ZDMtg1/ug5l183f19gG1/cBstPO4D8N/Img==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.esm.min.js" integrity="sha512-GX5RhAJTSxfAp80mSUfJ79enrS3h3pEKg8OrwsZSs1wKyrTROVat0pvgP5RS5DAHXeSXON6T4FoKapNDmTrdOw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+
+
+
+</head>
+
+
+
+<body>
+
+    <div class="folium-map" id="map_d55370a4383d6fd89a4876821e74f679">
+
+    </div>
+    <div class="header">
+        <a href="file:///D:/A.K._Daminov/weather/index.html"><img class="logo" src="../static/img/logo.png" alt=""></a>
+        <ul class="user_list">
+            <li>Username</li>
+            <li>
+                <a href="#!" class="user_list__link">Ro'yxatdan o'tish</a>
+            </li>
+            <li>
+                <a href="#!" class="user_list__link">Kirish</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="popup_model">
+        <div class="popup_model__buttons">
+            <button class="popup_model__buttons__button">Stansiya</button>
+            <button class="popup_model__buttons__button">Ma'lumotlar</button>
+            <button class="popup_model__buttons__button">Yuklash</button>
+            <button class="popup_model__buttons__button">Chizish</button>
+        </div>
+        <div class="popup_model__shows_stantion">
+            <p> <strong>Viloyat:</strong> <input type="text" value="Toshkent" disabled> </p>
+            <p><strong>Tuman:</strong><input type="text" value="Olmazor" disabled> </p>
+            <p><strong>Stansiya nomi:</strong> <input type="text" value="Toshkent" disabled></p>
+            <p><strong>Kenglik/uzunik:</strong> <input type="text" value="64.5825, 54.6565" disabled></p>
+            <p><strong>Dengiz satxidan balandligi:</strong> <input type="text" value="1000m" disabled></p>
+            <p><strong>Ma'lumotlar diapazoni:</strong> <input type="text" value="2005-2022" disabled></p>
+        </div>
+        <div class="popup_model__shows_info">
+            <p> <strong>Havo harorati:</strong> <input type="text" value="12 °C" disabled> </p>
+            <p><strong>Shamol tezligi:</strong><input type="text" value="12 m/s" disabled> </p>
+            <p><strong>Atmosfera bosimi:</strong> <input type="text" value="946 s.mm.ust." disabled></p>
+            <p><strong>Shamol yo'nalishi:</strong> <input type="text" value="Shimoly-sharq" disabled></p>
+            <p><strong>Havo namiligi:</strong> <input type="text" value="70%" disabled></p>
+            <p><strong>Yog'ingarchilik:</strong> <input type="text" value="2 mm" disabled></p>
+        </div>
+        <div class="popup_model__shows_download">
+            <div class="scroll">
+                <p> 
+                    <label for="download_type"><strong>Ma'lumot turini tanlang:</strong> </label>
+                    <select name="" id="download_type">
+                        <option value="">Yer ma'lumot ko'rsatkichlari</option>
+                        <option value="">NASA</option>
+                        <option value="">Era5</option>
+                    </select>
+                </p>
+                <p> 
+                    <label for="download_time_type"><strong>O'rtacha vaqtni tanlang:</strong> </label>
+                    <select name="" id="download_time_type">
+                        <option value="">Soatlik</option>
+                        <option value="">Kunlik</option>
+                        <option value="">Oylik</option>
+                    </select>
+                </p>
+                <p><strong>Kenglik/uzunik:</strong> <input type="text" value="64.5825, 54.6565" disabled></p>
+                <p> 
+                    <strong>Boshlang'ich va oxirgi sanani tanlang:</strong>
+                    <input type="date" class="first_date">
+                    <input type="date" class="last_date">
+                </p>
+                <p> 
+                    <label for="download_formmat_type"><strong>Chiqish fayl formatini tanlang:</strong> </label>
+                    <select name="" id="download_formmat_type">
+                        <option value="">XLSX</option>
+                        <option value="">TXT</option>
+                        <option value="">CSV</option>
+                        <option value="">JSNO</option>
+                    </select>
+                </p>
+                <p>
+                    <strong>Parametrlarni tanlang:</strong>
+                    <div id="jstree">
+                    
+                    </div>
+                </p>
+                <button class="popup_model__shows_download__button">Yuklash</button>
+            </div>
+        </div>
+        <div class="popup_model__shows_drawing" style="display: none;">
+            <p>
+                Kunlik o'rtacha temperaturalarni chizish:
+                <button class="drawing">Chizish</button>
+            </p>
+        </div>
+        <div class="exit"><img src="../static/img/exit.png" alt=""></div>
+    </div>
+    <div id="myDiv" class="myDiv">
+        <div class="close"><img src="../static/img/exit.png" alt=""></div>
+    </div>
+
+    <script>
+        
+
+L_NO_TOUCH = false;
+L_DISABLE_3D = false;
+var map = L.map("map", {
+  center: [41.0, 64.0],
+  crs: L.CRS.EPSG3857,
+  zoom: 7,
+  zoomControl: false,
+  preferCanvas: true,
+});
+
+var tile_layer_4fa23d6762e421b77b21558ed31c4920 = L.tileLayer(
+  "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+  {
+    attribution:
+      'Data by &copy;<a target="_blank" href="http://openstreetmap.org">OpenStreetMap</a>, under <a target="_blank" href="http://www.openstreetmap.org/copyright">ODbL</a>.',
+    detectRetina: false,
+    maxNativeZoom: 18,
+    maxZoom: 18,
+    minZoom: 6,
+    noWrap: false,
+    opacity: 1,
+    subdomains: "abc",
+    tms: false,
+  }
+).addTo(map);
+
+var myIcon = L.icon({
+  iconUrl: "../static/images/icon-marker.png", // Путь к изображению иконки
+  iconSize: [38, 38], // Размер иконки
+  iconAnchor: [19, 38], // Точка якоря иконки
+  popupAnchor: [0, -38], // Точка якоря всплывающего окна иконки
+});
+
+var places = [];
+
+{% for meteo in meteos %}
+places.push({ name: "{{ meteo.meteoName }}", coordinates: [{{ meteo.lon }}, {{ meteo.lat }}] });
+{% endfor %}
+
+var yourGeoJSONData = {
+  type: "FeatureCollection",
+  features: [],
+};
+
+places.forEach(function (place) {
+  var feature = {
+    type: "Feature",
+    properties: {
+      name: place.name,
+    },
+    geometry: {
+      type: "Point",
+      coordinates: place.coordinates,
+    },
+  };
+
+  yourGeoJSONData.features.push(feature);
+});
+
+// Создаем экземпляр поисковой системы
+var markersLayer = L.geoJSON(yourGeoJSONData, {
+  pointToLayer: function (feature, latlng) {
+    return L.marker(latlng, {
+      title: feature.properties.name,
+      icon: myIcon,
+    }).on("click", function (e) {
+      $("#search0").val(feature.properties.name);
+    });
+  },
+});
+
+var markerCluster = L.markerClusterGroup();
+markerCluster.addLayer(markersLayer);
+map.addLayer(markerCluster);
+
+var searchControl = new L.Control.Search({
+  layer: markerCluster,
+  propertyName: "name",
+  marker: false,
+  moveToLocation: function (latlng, title, map) {
+    map.setView(latlng, 12);
+  },
+});
+
+map.addControl(searchControl);
+
+// Обработчик события нажатия кнопки "Search"
+$(".search-button").click(function (event) {
+  event.preventDefault();
+
+  var searchText = $("#search0").val();
+
+  searchControl.search(searchText);
+});
+
+    </script>
+
+</body>
+</html>

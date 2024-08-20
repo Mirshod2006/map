@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.min.css" integrity="sha512-EAgFb1TGFSRh1CCsDotrqJMqB2D+FLCOXAJTE16Ajphi73gQmfJS/LNl6AsjDqDht6Ls7Qr1KWsrJxyttEkxIA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-grid.rtl.min.css" integrity="sha512-3oruZFd8e/wrfr2pTP6LpO4lR0exB870UcnrVa0u3TTqbQ5ULfSsv25uG4NdN5mOgES3zvEzuLQq4EqaX8yVqA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-reboot.min.css" integrity="sha512-allly0sW31f5fb2FdiSuezu/pLSoV8hN0liPTS5PAeB39hxh5S6yDf6ak7ge77JkfnOkiFNfjdXDyx6sEzz08A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-reboot.rtl.min.css" integrity="sha512-oOQddPMv4zGW7uB4CCwYq6inlgc5ur0QpM63U80cqrYMJXRWdVe4+vikoUqJQ9csSguOSUd2SUvXxJ6KIzhnjQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-utilities.min.css" integrity="sha512-K4XWKeYNHW67orY92NwVkgHAShgq/TowE5Sx9O4imSO1YM3ll+6pLLwcSJvr3IwDIWCnSDhkuxxqJEbY8+iGzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap-utilities.rtl.min.css" integrity="sha512-Jx83h6vz654R02peFNTa/9Xeqy//qpF6meM5bnhXD9uD9aMIV8JqYBumRIeAUnx5gQSojnN+FrvZoyvfEmu8OA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.rtl.min.css" integrity="sha512-ltIFivbYEeV9dNzcYLxBKC2hPQ0l9K2/Ws8R5GsMkxANKtMigmsjzTUUej7iH5NwGNnD070lrycDq5OJlDyb1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" integrity="sha512-Zcn6bjR/8RZbLEpLIeOwNtzREBAJnUKESxces60Mpoj+2okopSAcSUIUOseddDm0cxnGQzxIR7vJgsLZbdLE3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" integrity="sha512-h9FcoyWjHcOcmEVkxOfTLnmZFWIH0iZhZT1H2TbOq55xssQGEJHEaIm+PgoUaZbRvQTNTluNOEfb1ZRy6D3BOw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css" integrity="sha512-6ZCLMiYwTeli2rVh3XAPxy3YoR5fVxGdH/pz+KMCzRY2M65Emgkw00Yqmhh8qLGeYQ3LbVZGdmOX9KUjSKr0TA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.min.css" integrity="sha512-fYyZwU1wU0QWB4Yutd/Pvhy5J1oWAwFXun1pt+Bps04WSe4Aq6tyHlT4+MHSJhD8JlLfgLuC4CbCnX5KHSjyCg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css" integrity="sha512-mQ77VzAakzdpWdgfL/lM1ksNy89uFgibRQANsNneSTMD/bj0Y/8+94XMwYhnbzx8eki2hrbPpDm0vD0CiT2lcg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.min.css" integrity="sha512-ENrTWqddXrLJsQS2A86QmvA17PkJ0GVm1bqj5aTgpeMAfDKN2+SIOLpKG8R/6KkimnhTb+VW5qqUHB/r1zaRgg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js" integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.min.js" integrity="sha512-3dZ9wIrMMij8rOH7X3kLfXAzwtcHpuYpEgQg1OA4QAob1e81H8ntUQmQm3pBudqIoySO5j0tHN4ENzA6+n2r4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js" integrity="sha512-VK2zcvntEufaimc+efOYi622VN5ZacdnufnmX7zIhCPmjhKnOi9ZDMtg1/ug5l183f19gG1/cBstPO4D8N/Img==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.esm.min.js" integrity="sha512-GX5RhAJTSxfAp80mSUfJ79enrS3h3pEKg8OrwsZSs1wKyrTROVat0pvgP5RS5DAHXeSXON6T4FoKapNDmTrdOw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js" integrity="sha512-BwHfrr4c9kmRkLw6iXFdzcdWV/PGkVgiIyIWLLlTSXzWQzxuSg4DiQUCpauz/EWjgk5TYQqX/kvn9pG1NpYfqg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet-src.js" integrity="sha512-x4B5AXtD8SqDqEpzOFXxCE0OOUhQ0Fep3Qka6WtUa3tw7z4fC7eOI4Vjm191HB63//4Y554Zxydbt2Hi8b+bVQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet-src.min.js" integrity="sha512-3/WyQrhTdqSVmSifQS62akgtNBhZha2lS44TnoN9Jk3J01FvsKK4suVmz6t5FtccGb5iJw58GoFhBjPE5EPc8Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" integrity="sha512-puJW3E/qXDqYp9IfhAI54BJEaWIfloJ7JWs7OeD5i6ruC9JZL1gERT1wjtwXFlh7CjE7ZJ+/vcRZRkIYIb6p4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/leaflet"></script>
+    <script src="https://unpkg.com/@joergdietrich/leaflet.terminator"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js" integrity="sha512-OFs3W4DIZ5ZkrDhBFtsCP6JXtMEDGmhl0QPlmWYBJay40TT1n3gt2Xuw8Pf/iezgW9CdabjkNChRqozl/YADmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster-src.js" integrity="sha512-+v1wwh3/ssdlBHT9KaotlPNisom2W6Ryj4g2/HfkKu6OLp62Lbf6VgRdEm2+OYOQVnR0WoxVgWZq5JmPBAj+HQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster-src.min.js" integrity="sha512-tWZsle/wNvFCP/7BHWNf3yG/6Ic1YVPT+1Soyag9zzZcga1St3oAa+IgvrT3ZxBLY/njmSEr0EcQoPUrH+UfNg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.min.js" integrity="sha512-TiMWaqipFi2Vqt4ugRzsF8oRoGFlFFuqIi30FFxEPNw58Ov9mOy6LgC05ysfkxwLE0xVeZtmr92wVg9siAFRWA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="{% static 'js/worldJson.js' %}"></script>
+    
+    <title>Map</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      .loader-center{
+        position: absolute; 
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+      }
+      
+      .loader-list{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          margin: -90px 0 0 -80px; 
+      }
+      
+      
+      .loader{
+          position: absolute;
+          top: 80px;
+          left: 65px;
+          color: white;
+          border-radius: 50%;
+          transition: 1s all;
+      }
+      
+      .loader-top{
+          position: absolute;
+          border: 5px solid transparent;
+          border-top-color: white;
+          border-radius: 50%;
+          -webkit-animation: loading linear infinite;
+          -moz-animation: loading linear infinite;
+          -o-animation: loading linear infinite;
+          animation: loading linear infinite; 
+      }
+      
+      .loader-bottom{
+          position: absolute;
+          border: 5px solid transparent;
+          border-bottom-color: white;
+          border-radius: 50%;
+          -webkit-animation: loading linear infinite;
+          -moz-animation: loading linear infinite;
+          -o-animation: loading linear infinite;
+          animation: loading linear infinite; 
+      }
+      
+      .loader-top.one{
+          top: 24px;
+          left: 15px;
+          width: 120px;
+          height: 120px;
+          animation-duration: 1s;
+      }
+      .loader-top.two{
+          top: 37px;
+          left: 30px;
+          width: 90px;
+          height: 90px;
+          animation-duration: 1.2s;
+      }
+      .loader-top.three{
+          top: 50px;
+          left: 40px;
+          width: 70px;
+          height: 70px;
+          animation-duration: 1.4s;
+      }
+      .loader-top.four{
+          top: 64px;
+          left: 50px;
+          width: 50px;
+          height: 50px;
+          animation-duration: 1.6s;
+      }
+      
+      .loader-bottom.one{
+          top: 23px;
+          left: 15px;
+          width: 120px;
+          height: 120px;
+          animation-duration: 1s;
+      }
+      .loader-bottom.two{
+          top: 42px;
+          left: 30px;
+          width: 90px;
+          height: 90px;
+          animation-duration: 1.2s;
+      }
+      .loader-bottom.three{
+          top: 51px;
+          left: 40px;
+          width: 70px;
+          height: 70px;
+          animation-duration: 1.4s;
+      }
+      .loader-bottom.four{
+          top: 59px;
+          left: 50px;
+          width: 50px;
+          height: 50px;
+          animation-duration: 1.6s;
+      }
+      
+      @-webkit-keyframes loading {
+          from{
+              -webkit-transform: rotateZ(360deg);
+              -moz-transform: rotateZ(360deg);
+              -ms-transform: rotateZ(360deg);
+              transform: rotateZ(360deg);
+          }
+          to{
+              -webkit-transform: rotateZ(0);
+              -moz-transform: rotateZ(0);
+              -ms-transform: rotateZ(0);
+              transform: rotateZ(0);
+          }
+      }
+      
+      @-moz-keyframes loading {
+          from{
+              -webkit-transform: rotateZ(360deg);
+              -moz-transform: rotateZ(360deg);
+              -ms-transform: rotateZ(360deg);
+              transform: rotateZ(360deg);
+          }
+          to{
+              -webkit-transform: rotateZ(0);
+              -moz-transform: rotateZ(0);
+              -ms-transform: rotateZ(0);
+              transform: rotateZ(0);
+          }
+      }
+      
+      @-ms-keyframes loading {
+          from{
+              -webkit-transform: rotateZ(360deg);
+              -moz-transform: rotateZ(360deg);
+              -ms-transform: rotateZ(360deg);
+              transform: rotateZ(360deg);
+          }
+          to{
+              -webkit-transform: rotateZ(0);
+              -moz-transform: rotateZ(0);
+              -ms-transform: rotateZ(0);
+              transform: rotateZ(0);
+          }
+      }
+      
+      @-ms-keyframes loading {
+          from{
+              -webkit-transform: rotateZ(360deg);
+              -moz-transform: rotateZ(360deg);
+              -ms-transform: rotateZ(360deg);
+              transform: rotateZ(360deg);
+          }
+          to{
+              -webkit-transform: rotateZ(0);
+              -moz-transform: rotateZ(0);
+              -ms-transform: rotateZ(0);
+              transform: rotateZ(0);
+          }
+      }
+      
+      @keyframes loading {
+          from{
+              -webkit-transform: rotateZ(360deg);
+              -moz-transform: rotateZ(360deg);
+              -ms-transform: rotateZ(360deg);
+              transform: rotateZ(360deg);
+          }
+          to{
+              -webkit-transform: rotateZ(0);
+              -moz-transform: rotateZ(0);
+              -ms-transform: rotateZ(0);
+              transform: rotateZ(0);
+          }
+      }
+
+      body {
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 35% 35% 30%;
+            grid-template-rows: 33.333333333% 33.33333333333% 33.3333333333333%;
+            grid-template-areas:
+                "a1 a1 a2"
+                "a1 a1 a3"
+                "a4 a5 a6";
+            height: 100vh;  
+        }
+
+        .block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .a1 {
+            width: 100%;
+            grid-area: a1;
+        }
+
+        .a2 {
+            width: 100%;
+            grid-area: a2;
+        }
+
+        .a3 {
+            width: 100%;
+            grid-area: a3;
+        }
+
+        .a4 {
+            width: 100%;
+            grid-area: a4;
+        }
+
+        .a5 {
+            width: 100%;
+            grid-area: a5;
+        }
+
+        .a6 {
+            width: 100%;
+            grid-area: a6;
+        }
+
+      #map {
+        width: 100%;
+        height: 100%;
+        z-index: 100;
+      }
+
+      .cluster-marker-label {
+        width: 35px;
+        height: 35px;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        background: linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),            linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),            linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .customMarker {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        border: 1px solid;
+      }
+
+
+      .listgroup {
+        position: relative;
+        z-index: 99999999 !important;
+        background: #fff;
+        padding: 8px;
+        width: 100%;
+      }
+
+      .accordion-button::after {
+        width: 0px;
+        height: 0px;
+      }
+
+      .accordion-button:not(.collapsed) {
+        background-color: #fff;
+      }
+
+      .accordion {
+        width: 100%;
+        height: 100%;
+
+      }
+
+      .reg_col {
+        display: flex;
+      }
+
+      a {
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .modal__info {
+        display: flex;
+        gap: 24px;
+    }
+
+    .info_bold {
+        font-weight: bold;
+    }
+
+    .modal_line {
+        width: 690px;
+        height: 2px;
+        background: grey;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        opacity: 0.3;
+    }
+
+    .leaflet-popup-content-wrapper, .leaflet-popup-content {
+      width: 730px !important;
+      height: 100% !important;
+    }
+
+    .rebot {
+      position: absolute;
+      z-index: 999999;
+      top: 10px;
+      right: 750px;
+    }
+
+    .weather-customize {
+      width: 700px !important;
+      margin: 0 !important;
+      overflow: visible !important;
+    }
+
+    .booked-wzs-250-175 {
+      max-width: 0 !important;
+      margin: 0 !important;
+    }
+
+    #width4.booked-wzs-250-175 {
+      max-width: initial !important;
+    }
+
+    .dropdown:hover>.dropdown-menu {
+      display: block;
+    }
+
+    .dropdown>.dropdown-toggle:active {
+      /*Without this, clicking will make it sticky*/
+        pointer-events: none;
+    }
+
+  </style>
+  </head>
+  <body>
+
+    <div class="loader-center" id="loading">
+      <div class="loader-list">
+          <div class="one loader-top"></div>
+          <div class="two loader-top"></div>
+          <div class="three loader-top"></div>
+          <div class="four loader-top"></div>
+          <div class="loader" id="loader">0%</div>
+          <div class="one loader-bottom"></div>
+          <div class="two loader-bottom"></div>
+          <div class="three loader-bottom"></div>
+          <div class="four loader-bottom"></div>
+      </div>
+    </div>
+    <div class="block a1">
+      <div id="map" style="z-index: 666;"></div>
+      <div class="rebot">
+        <a href="{% url 'BaseUpdate' %}" class="rebot_link">
+          <button class="btn btn-primary">Reset</button>
+        </a>
+      </div>
+      <div class="dropdown " style="position: absolute; z-index: 99999999; top: 10px; left: 50px;">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-mdb-toggle="dropdown" aria-expanded="false">
+          Viloyatlar
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 350px; height: 500px; overflow: auto !important;">
+          <div class="listgroup">
+            <div id="accordion" class="accordion">
+              {% for region in regions %}
+                  <div class="accordion-item">
+                      <div class="d-flex justify-content-between">
+                        <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+                          <button class="accordion-button d-flex justify-content-between w-100" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-controls="collapse{{ forloop.counter }}">
+                            {{ region }}
+                            <span class="badge text-primary d-flex justify-content-between align-items-center" id="abssum"></span>
+                          </button>
+                        </h2>
+                      </div>
+                      <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#accordion">
+                          <div class="accordion-body">
+                            {% for arr in data %}
+                              {% if region == arr.regions %}
+                                  <div class="reg_col nameClick" data-lat="{{ arr.lat }}" data-lon="{{ arr.lon }}">
+                                    <p id="sub_name" style="margin: 0px; font-size: 14px;"><strong>{{arr.name}}</strong></p>
+                                    <p class="text-primary" style="margin-left: 5px; font-size: 14px;" id="k_w">{{arr.abs_val}} <strong>kW</strong></p>
+                                  </div>
+                              {% endif %}
+                            {% endfor %}
+                          </div>
+                      </div>
+                  </div>
+              {% endfor %}
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+    <div class="block a2">{% include 'plot1_html.html' %}</div>
+    <div class="block a3">{% include 'plot2_html.html' %}</div>
+    <div class="block a4">{% include 'plot5_html.html' %}</div>
+    <div class="block a5">{% include 'plot3_html.html' %}</div>
+    <div class="block a6">{% include 'plot4_html.html' %}</div>
+    <script type="text/javascript"> var css_file=document.createElement("link"); var widgetUrl = location.href; css_file.setAttribute("rel","stylesheet"); css_file.setAttribute("type","text/css"); css_file.setAttribute("href",'https://s.bookcdn.com/css/w/booked-wzs-widget-275.css?v=0.0.1'); document.getElementsByTagName("head")[0].appendChild(css_file); function setWidgetData_48079(data) { if(typeof(data) != 'undefined' && data.results.length > 0) { for(var i = 0; i < data.results.length; ++i) { var objMainBlock = document.getElementById('m-booked-weather-bl250-48079'); if(objMainBlock !== null) { var copyBlock = document.getElementById('m-bookew-weather-copy-'+data.results[i].widget_type); objMainBlock.innerHTML = data.results[i].html_code; if(copyBlock !== null) objMainBlock.appendChild(copyBlock); } } } else { alert('data=undefined||data.results is empty'); } } var widgetSrc = "https://widgets.booked.net/weather/info?action=get_weather_info;ver=7;cityID=12205;type=3;scode=59038;ltid=3457;domid=;anc_id=81320;countday=undefined;cmetric=1;wlangID=20;color=137AE9;wwidth=430;header_color=ffffff;text_color=333333;link_color=08488D;border_form=1;footer_color=ffffff;footer_text_color=333333;transparent=0;v=0.0.1";widgetSrc += ';ref=' + widgetUrl;widgetSrc += ';rand_id=48079';var weatherBookedScript = document.createElement("script"); weatherBookedScript.setAttribute("type", "text/javascript"); weatherBookedScript.src = widgetSrc; document.body.appendChild(weatherBookedScript) </script><!-- weather widget end -->
+    <script>
+
+      
+      
+      
+      
+      
+      var loader = document.getElementById('loader'),
+          load = document.getElementById('loading'),
+          myTime,
+          newTime = 0;
+
+      function loading() {
+          'use strict';
+
+          newTime = newTime + 1;
+
+          if (newTime > 100) {
+              newTime = 0;
+              // load.style.transition = '1s all';
+              // load.style.opacity = '0';
+              // clearInterval(myTime);
+          } else {
+              loader.textContent = newTime + "%";
+          }
+      }
+
+
+      function haversine(lat1, lon1, lat2, lon2) {
+        // Радиус Земли в километрах (средний радиус, можно использовать 6371 км или более точное значение)
+        var earthRadiusKm = 6371;
+
+        // Преобразование широты и долготы из градусов в радианы
+        var dLat = degreesToRadians(lat2 - lat1);
+        var dLon = degreesToRadians(lon2 - lon1);
+
+        // Вычисление расстояния с помощью формулы гаверсинуса
+        var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(degreesToRadians(lat1)) * Math.cos(degreesToRadians(lat2)) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        var distance = earthRadiusKm * c;
+
+        return distance;
+      }
+
+      function degreesToRadians(degrees) {
+        return degrees * Math.PI / 180;
+      }
+      var arrlat, arrlon;
+
+      
+
+
+      myTime = setInterval(loading, 200);
+      const accordions = document.querySelectorAll('.accordion');
+      const nameClickElements = document.querySelectorAll('.nameClick');
+      const modalInfo = document.querySelector('.modalInfo');
+
+
+      accordions.forEach(accordion => {
+        const items = accordion.querySelectorAll('.accordion-item');
+
+        items.forEach(item => {
+          const header = item.querySelector('.accordion-header');
+          header.addEventListener('click', () => {
+            item.classList.toggle('active');
+          });
+          header.addEventListener('click', () => {
+            item.classList.remove('active');
+          });
+        });
+      });
+
+      var osmDataAttr = 'Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+      var osm = L.tileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:osmDataAttr});
+          terr=L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',{attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'});
+          google=L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {subdomains:['mt0','mt1','mt2','mt3']});
+          googlehib=L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {subdomains:['mt0','mt1','mt2','mt3']});
+          gis2d=L.tileLayer('http://tile2.maps.2gis.com/tiles?x={x}&y={y}&z={z}');
+          gt=L.tileLayer('http://{s}.google.com/vt/lyrs=p&x={x}&y={y}&z={z}', {subdomains:['mt0','mt1','mt2','mt3']})
+      
+      var baseMaps = {
+          "Open Street Map": osm,
+          "Fazodan": terr,
+          "Google":google,
+          "Google H":googlehib,
+          "Gis 2D":gis2d,
+          "Google Ter":gt
+      };
+
+      
+      sputnik = 'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}'
+      simple = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+      $(document).ready(function() {
+        $.ajax({
+            url: '/get_data/', // Замените на URL вашего представления
+            type: 'GET',
+            dataType: 'json',
+            success: function(data) {
+                // Создание map options
+              var map = L.map('map')
+                .addLayer(L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'))
+                .setView([41.00, 64.00], 6);
+              L.terminator().addTo(map);
+              var lc=L.control.layers(baseMaps);
+              lc.addTo(map);
+              // Создание маркер-группы
+              $.ajax({
+                url: '/get_meteoData/',  // Путь к вашему представлению
+                type: 'GET',
+                dataType: 'json',
+                success: function (meteoData) {
+                    if (Array.isArray(meteoData)) {
+                      map.on('click', function (e) {
+                        isBoss = confirm("Ma'lumotlari olishni xohlaysizmi?");
+                        if(isBoss === true) {
+                          var minDistance = Number.MAX_VALUE;
+                          var closestMeteoLat = null;
+                          var closestMeteoLon = null; // Инициализируем ближайшие широту и долготу
+                          var closestMeteoName = "";
+                          var minDistance1 = Number.MAX_VALUE;
+                          var closestMeteoLat1 = null;
+                          var closestMeteoLon1 = null; // Инициализируем ближайшие широту и долготу
+                          var closestMeteoName1 = "";
+                          var distance = Number.MAX_VALUE;
+                          var distance1 = Number.MAX_VALUE;
+                          
+                          meteoData.forEach(function (data) {
+                              if (data && data.lat && data.lon) {
+                                  var lat = data.lat;
+                                  var lon = data.lon;
+                                  var meteo_id = data.meteo_id;
+                                  var name = data.name;
+                                  var distance = haversine(e.latlng.lat, e.latlng.lng, lat, lon);
+
+                                  if (distance < minDistance) {
+                                      minDistance = distance;
+                                      closestMeteoLat = lat; // Обновляем ближайшую широту
+                                      closestMeteoLon = lon; // Обновляем ближайшую долготу
+                                      closestMeteoName = name;
+                                      closestMeteoId = meteo_id
+                                  }
+                              } else {
+                                  console.error("Данные не содержат широту или долготу:", data);
+                              }
+                          });
+
+                          data.forEach(function (get) {
+                              if (get && get.lat && get.lon) {
+                                  var lat = get.lat;
+                                  var lon = get.lon;
+                                  var meteo_id = get.get_id;
+                                  var name = get.name;
+                                  var distance1 = haversine( lat, lon, e.latlng.lat, e.latlng.lng);
+
+                                  if (distance1 < minDistance1) {
+                                      minDistance1 = distance1;
+                                      closestMeteoLat1 = lat; // Обновляем ближайшую широту
+                                      closestMeteoLon1 = lon; // Обновляем ближайшую долготу
+                                      closestMeteoName1 = name;
+                                      closestMeteoId1 = meteo_id
+                                  }
+                              } else {
+                                  console.error("Данные не содержат широту или долготу:", get);
+                              }
+                          });
+                        } else {
+                          console.log("False")
+                        }
+                        
+
+                        function getCookie(name) {
+                            // ... (оставьте функцию getCookie без изменений)
+                        }
+
+                      if (closestMeteoName) {
+                        console.log(
+                          minDistance.toFixed(2) + ' km - ' + closestMeteoName,
+                          closestMeteoName_fin = closestMeteoId,
+                          'Lat: ' + closestMeteoLat, // Выводим широту в консоль
+                          'Lon: ' + closestMeteoLon // Выводим долготу в консоль
+                        );
+                        console.log(
+                          minDistance1.toFixed(2) + ' km - ' + closestMeteoName1,
+                          closestMeteoName_fin1 = closestMeteoId1,
+                          'Lat: ' + closestMeteoLat1, // Выводим широту в консоль
+                          'Lon: ' + closestMeteoLon1 // Выводим долготу в консоль
+                        );
+                        var csrfToken = getCookie('csrftoken'); // You need to define the getCookie function
+                        $.ajax({
+                          url: "{% url 'my_view' %}",  // Замените на URL вашего представления для отправки данных
+                          type: 'POST', // Используйте метод POST для отправки данных на сервер
+                          dataType: 'json',
+                          headers: {
+                            'X-CSRFToken': csrfToken
+                          },
+                          data: {
+                            closestMeteoName_fin: closestMeteoName_fin,
+                            closestMeteoLat: closestMeteoLat,
+                            closestMeteoLon: closestMeteoLon,
+                            closestMeteoName_fin1: closestMeteoName_fin1,
+                            closestMeteoLat1: closestMeteoLat1,
+                            closestMeteoLon1: closestMeteoLon1,
+                            closestMeteoName1: closestMeteoName1,
+                          },
+                          success: function (response) {
+                              // Обработка успешного ответа от сервера
+                              console.log('Ответ от сервера:', response);
+                          },
+                        });
+                                                
+                      } else {
+                        console.error("No valid meteoData found.");
+                      }
+                    });
+                  } else {
+                    console.error("meteoData is not an array:");
+                  }
+                },
+                error: function(error) {
+                  // Handle the error appropriately
+                  console.log(error);
+                }
+              });
+
+
+
+              
+              var markers = L.markerClusterGroup({
+                disableClusteringAtZoom: 13,
+                spiderfyOnMaxZoom: true,
+                showCoverageOnHover: false,
+                zoomToBoundsOnClick: true,
+                iconCreateFunction: function(cluster) {
+                  var totalAbsSum = 0;
+                  var totalUseSum = 0;
+                  var totalPvSum = 0;
+
+                  return L.divIcon({
+                    className: 'custom-cluster-marker',
+                    html: '<div class="cluster-marker-label">' + cluster.getChildCount() + '</div>'
+                  });
+                }
+              
+              });
+
+              data.forEach(function(arr) {
+                var marker = L.marker([arr['lat'], arr['lon']]);
+                var arrlat = arr['lat'];
+                var arrlon = arr['lon'];
+                var get_ids = arr['get_id'];
+                marker.options.arr = arr;
+                var markerIcon = L.divIcon({
+                  className: 'custom-marker',
+                  html: '<div class="customMarker"></div>'
+                });
+              
+                  
+                
+                marker.setIcon(markerIcon);
+                markers.addLayer(marker);
+                // marker.on('click', function() {
+                //   isBosss = confirm("Ma'lumotlari olishni xohlaysizmi?");
+                //   if (isBosss == true) {
+                //     console.log(get_ids);
+                //     $.ajax({
+                //       type: 'POST',
+                //       url: "{% url 'my_view' %}",
+                //       data: { get_id: get_ids },
+                //       dataType: 'json',
+                //       beforeSend: function(xhr, settings) {
+                //           xhr.setRequestHeader('Authorization', 'Bearer ваш_токен');
+                //       },
+                //       success: function(response) {
+                //           // Обработка успешного ответа
+                //       },
+                //       error: function(xhr, status, error) {
+                //           // Обработка ошибок
+                //       }
+                //     });
+                //   } else {
+                //     console.log("ERROR")
+                //   }
+                // });
+                marker.on('add', function() {
+                  var customMarker = marker._icon.getElementsByClassName('customMarker')[0];
+                  if (parseInt(arr['abs_val']) == 0) {
+                    customMarker.style.backgroundColor = "#CD1818";
+                  } else {
+                    customMarker.style.backgroundColor = "#82CD47";
+                  }
+                });
+                
+                marker.bindPopup('<h3><span class="info_bold">Stansiya nomi: </span>'+arr['name']+' </h3><div class="modal_line"></div><div class="modal__info"><img src="https://image.made-in-china.com/43f34j00iMkQrowFMOYn/off-Grid-Home-Use-Solar-Power-System500W-1kw-2kw-3kw-5kw.jpg" style="border-radius: 8px;" alt="" class="modal__info__img"><div class="modal__info__text"><p class="adress"><span class="info_bold">Manzil: </span>'+arr['adress']+'</p><p class="lat_lon"><span class="info_bold">Uzunlik va kenglik: </span> '+ arr['lat'] +', '+arr['lon']+'</p><p class="capacity"><span class="info_bold">Umumiy quvvati (kW): </span> '+arr['inverterPower']+'</p><p class="connection"><span class="info_bold">Tarmoqqa ulanish sanasi: </span>'+arr['gridConnectedTime']+' </p><p class="time_zone"><span class="info_bold">Time Zone: </span>(UTC+05:00)Ashgabat, Tashkent</p><p class="abs"><span class="info_bold">Real quvvat (kW):  </span> '+arr['abs_val']+'</p><p class="use"><span class="info_bold">Bugungi (kW):  </span> '+arr['use']+'</p><p class="pv"><span class="info_bold">Jami (kW):  </span> '+arr['pv']+'</p></div></div> <button type="button" id="myButton" class="btn btn-primary" style="margin-left: 80%; margin-top: 15px;">Chizish  </button>').openPopup();
+              });
+
+              // Добавьте обработчик события "click" для маркеров
+
+              // $.ajax({
+              //   url: '/FesData/',  // Путь к вашему представлению
+              //   type: 'GET',
+              //   dataType: 'json',
+              //   success: function (FesData) {
+              //     if (Array.isArray(FesData)) {
+              //       markers.on('clusterclick click', function (e) {
+              //         if (e.layer instanceof L.Marker) {
+              //           // Обработка клика на отдельном маркере
+              //           console.log('Marker clicked');
+              //         } else if (e.layer instanceof L.MarkerCluster) {
+              //           // Обработка клика на кластере
+              //           console.log('Cluster clicked');
+              //         }
+
+              //         var minDistance = Number.MAX_VALUE;
+              //         var closestMeteoLat = null;
+              //         var closestMeteoLon = null;
+              //         var closestMeteoId = null;
+              //         var closestMeteoData = null;
+              //         var closestMeteoName = "";
+
+                 
+              //         FesData.forEach(function (data) {
+              //           if (data && data.lat && data.lon) {
+              //             var lat = data.lat;
+              //             var lon = data.lon;
+              //             var get_id = data.get_id;
+              //             var distance = haversine(e.latlng.lat, e.latlng.lng, lat, lon);
+
+                                                    
+              //             if (meteo22_distance < minDistance) {
+              //               meteo22_distance = distance;
+              //               meteo22_lat = lat;
+              //               meteo22_lon = lon;
+              //               meteo22_id = get_id;
+              //             }
+              //             console.log(get_id)
+              //             if (distance < minDistance) {
+              //               minDistance = distance;
+              //               closestMeteoLat = lat;
+              //               closestMeteoLon = lon;
+              //               closestMeteoName = name;
+              //               closestMeteoId = get_id;
+              //             }
+              //           } else {
+              //             console.error("Данные не содержат широту или долготу:", data);
+              //           }
+              //         });
+
+              //         function getCookie(name) {
+              //             // ... (оставьте функцию getCookie без изменений)
+              //         }
+
+
+              //         if (closestMeteoName) {
+              //           console.log(
+              //             console.log(get_id)
+              //           );
+              //           var csrfToken = getCookie('csrftoken');
+              //           $.ajax({
+              //             url: "{% url 'my_view' %}",  // Замените на URL вашего представления для отправки данных
+              //             type: 'POST',
+              //             dataType: 'json',
+              //             headers: {
+              //               'X-CSRFToken': csrfToken
+              //             },
+              //             data: {
+              //               get_id: closestMeteoId,
+              //               get_lat: closestMeteoLat,
+              //               get_lon: closestMeteoLon,
+              //             },
+              //             success: function (response) {
+              //               console.log('Ответ от сервера:', response);
+              //             },
+              //           });
+              //         } else {
+              //           console.error("No valid meteoData found.");
+              //         }
+              //       });
+              //     } else {
+              //       console.error("meteoData is not an array.");
+              //     }
+              //   },
+              // });
+
+              // $.ajax({
+              //   url: '/get_meteoData/',  // Путь к вашему представлению
+              //   type: 'GET',
+              //   dataType: 'json',
+              //   success: function (meteoData) {
+              //     var jsons = {
+              //       id: [3, 6, 8, 16, 20, 24, 27, 29, 43, 49, 51, 67, 76, 80, 82, 87, 98, 100, 102, 103, 104, 106],
+              //       lat: [40.68666666666667, 39.492666666666665, 38.254555555555555, 41.75856944444445, 39.98291666666667, 38.017722222222226, 40.26636111111111, 41.526175, 40.37258333333333, 41.41027777777778, 41.32797222222222, 39.4995, 41.28958333333333, 39.75805555555556, 38.33861111111111, 40.918194444444445,40.98433333333333,41.147,41.078722222222225,40.32091666666667,40.67761111111111,40.17177777777778],
+              //       lon: [71.62305555555555, 63.83888888888889, 66.82722222222222,64.62138888888889,66.23433333333334,67.80027777777778,68.83305555555556,70.02333333333333,71.77875, 60.38333333333333,69.29527777777778,64.831,71.54027777777777,66.91527777777777,67.90555555555555,69.83611111111111,71.47441388888889,72.10116666666667,71.22258333333333,71.00477777777778,71.76794444444444,71.73147222222222],
+              //     };
+              //     // 121, 123, 125, 127 1 ta  
+              //     var meteoStationNumbers = JSON.stringify(jsons);
+              //     if (Array.isArray(meteoData)) {
+              //       markers.on('clusterclick click', function (e) {
+              //         if (e.layer instanceof L.Marker) {
+              //           // Обработка клика на отдельном маркере
+              //           console.log('Marker clicked');
+              //         } else if (e.layer instanceof L.MarkerCluster) {
+              //           // Обработка клика на кластере
+              //           console.log('Cluster clicked');
+              //         }
+
+              //         var minDistance = Number.MAX_VALUE;
+              //         var MeteoLat = null;
+              //         var MeteoLon = null;
+              //         var MeteoId = null;
+              //         var MeteoData = null;
+              //         var MeteoName = "";
+
+                 
+              //         meteoData.forEach(function (data) {
+              //           if (data && data.lat && data.lon) {
+              //             var lat = data.lat;
+              //             var lon = data.lon;
+              //             var meteo_id = data.meteo_id;
+              //             var name = data.name;
+              //             var distance = haversine(e.latlng.lat, e.latlng.lng, lat, lon);
+
+                                                    
+              //             if (meteo22_distance < minDistance1) {
+              //               meteo22_distance = distance;
+              //               meteo22_lat = lat;
+              //               meteo22_lon = lon;
+              //               meteo22_id = meteo_id;
+              //             }
+              //             if (distance1 < minDistance1) {
+              //               minDistance = distance1;
+              //               MeteoLat = lat;
+              //               MeteoLon = lon;
+              //               MeteoName = name;
+              //               MeteoIds = meteo_id;
+              //             }
+              //           } else {
+              //             console.error("Данные не содержат широту или долготу:", data);
+              //           }
+              //         });
+
+              //         function getCookie(name) {
+              //             // ... (оставьте функцию getCookie без изменений)
+              //         }
+
+                      
+              //         if (MeteoName) {
+              //           console.log(MeteoId)
+              //           MeteoId = MeteoIds
+              //           var csrfToken = getCookie('csrftoken');
+              //           $.ajax({
+              //             url: "{% url 'my_view' %}",  // Замените на URL вашего представления для отправки данных
+              //             type: 'POST',
+              //             dataType: 'json',
+              //             headers: {
+              //               'X-CSRFToken': csrfToken
+              //             },
+              //             data: {
+              //               id: MeteoId,
+              //               lat: MeteoLat,
+              //               lon: MeteoLon,
+              //             },
+              //             success: function (response) {
+              //               console.log('Ответ от сервера:', response);
+              //             },
+              //           });
+              //         } else {
+              //           console.error("No valid meteoData found.");
+              //         }
+              //       });
+              //     } else {
+              //       console.error("meteoData is not an array.");
+              //     }
+              //   },
+              //   error: function (error) {
+              //     console.log('Произошла ошибка при получении данных:', error);
+              //   }
+              // });
+
+              // Обработка событий клика на элементы
+              nameClickElements.forEach(element => {
+                element.addEventListener('click', () => {
+                  var lat = parseFloat(element.getAttribute('data-lat').replace(",", "."));
+                  var lon = parseFloat(element.getAttribute('data-lon').replace(",", "."));
+                  map.flyTo([lat, lon], 18);
+                });
+              });
+
+              var countryLayer = L.geoJSON(countryDataGeoJSON, {
+                style: function (Feature) {
+                    var isUzbekistan = Feature.properties.ADMIN === 'Uzbekistan';
+                    var isOceanOrSea = Feature.properties.geometry === 'MultiPolygon' || Feature.properties.geometry === 'sea' || Feature.properties.geometry === 'lake';
+            
+                    return {
+                        fillColor: isUzbekistan ? 'rgba(255, 255, 255, 0.1)' : (isOceanOrSea ? 'dark' : 'dark'),
+                        weight: 1,
+                        opacity: 1,
+                        color: isUzbekistan ? 'green' : 'dark', 
+                        fillOpacity: 0.7
+                    };
+                }
+            }).addTo(map);
+              
+              map.addLayer(markers)
+            },
+            error: function(error) {
+                console.log('Произошла ошибка при получении данных:', error);
+            }
+        });
+      });
+
+      
+
+      
+      
+      //setInterval(updateDataAndHTML, 300000);
+      
+      //function updateDataAndHTML() {
+        // Логика обновления данных и HTML-элементов
+        // Можно обновить переменные c_p, t_p_t и t_p путем выполнения AJAX-запроса или других операций
+        // Затем можно обновить содержимое меток с помощью метода setHTMLContent или других подобных методов
+        // Пример:
+       // markers.eachLayer(function(marker) {
+        //  marker.setIcon(L.divIcon({
+        //   className: 'custom-marker',
+         //   html: '<img style="width: 50px;" src="../static/images/solar_icon-removebg-preview.png" alt="Marker Icon"> <div class="marker-label">Текущая мощность: ' + (marker.data.abs) + 'kW<br>Мощность на сегодня: ' + (marker.data.use) + 'kWh<br>Суммарная мощность: ' + (marker.data.pv) + ' kWh</div> '
+       //   }));
+       // });
+    //  }
+      
+      
+
+
+      
+
+      
+
+    
+      
+    
+    </script>
+  </body>
+</html>
